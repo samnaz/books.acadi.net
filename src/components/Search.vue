@@ -23,9 +23,14 @@ const input = ref('')
 const searchResults = computed(() => {
     if (!input.value || input.value.length < 2) return [];
 
-    return productStore.list.filter(item => {
-      return item.title.toLowerCase().includes(input.value.toLowerCase());
+    const byTitle = productStore.list.filter(item => {
+        return item.title.toLowerCase().includes(input.value.toLowerCase());
     });
+    const byDescription = productStore.list.filter(item => {
+        return item.description.toLowerCase().includes(input.value.toLowerCase());
+    });
+    return byTitle.concat(byDescription);
+
 })
 
 const navigate = (id: number) => {
