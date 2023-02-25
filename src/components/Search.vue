@@ -1,12 +1,14 @@
 <template>
     <div class="dropdown dropdown-end">
         <div class="form-control">
-            <input type="text" placeholder="Search..." class="input input-ghost" :disabled="!productStore.loaded" v-model="input" />
+            <input type="text" placeholder="Search..." class="input input-ghost" :disabled="!productStore.loaded"
+                v-model="input" />
         </div>
-        <ul class="shadow menu dropdown-content bg-base-100 rounded-box w-64 text-base-content overflow-y-scroll" style="max-height: 50vh;">
+        <ul class="shadow menu dropdown-content bg-base-100 rounded-box w-64 text-base-content overflow-y-scroll"
+            style="max-height: 50vh;">
             <li v-for="product in searchResults" :key="product.id">
                 <a href="#" @click.prevent="navigate(product.id)" v-text="product.title"></a>
-            </li> 
+            </li>
         </ul>
     </div>
 </template>
@@ -29,7 +31,8 @@ const searchResults = computed(() => {
     const byDescription = productStore.list.filter(item => {
         return item.description.toLowerCase().includes(input.value.toLowerCase());
     });
-    return byTitle.concat(byDescription);
+
+    return [...new Set(byTitle.concat(byDescription))];
 
 })
 
