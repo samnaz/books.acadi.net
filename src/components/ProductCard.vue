@@ -12,7 +12,7 @@
                 <router-link class="link link-hover" :to="`/product/${product.id}`">{{ product.title }}</router-link>
             </h2>
             <p>{{ toCurrency(product.price) }}</p>
-            <p class="text-sm h-full mt-2" v-text="product.description"></p>
+            <p class="text-sm h-full mt-2" v-html="product.description"></p>
             <div class="justify-end card-actions  align-bottom">
                 <button class="btn btn-primary" @click="cartStore.add(product.id)">Add to Cart</button>
             </div>

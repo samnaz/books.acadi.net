@@ -13,7 +13,7 @@
       </figure>
       <div class="card-body">
         <h2 class="card-title" v-text="product.title"></h2>
-        <p v-text="product.description"></p>
+        <p v-html="product.description"></p>
         <p class="mt-4 text-lg">{{ toCurrency(product.price) }}</p>
         <div class="card-actions">
           <button class="btn btn-primary" @click="cartStore.add(product.id)">

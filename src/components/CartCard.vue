@@ -11,7 +11,7 @@
             <h2 class="card-title">
                 <router-link class="link link-hover" :to="`/product/${cartProduct.id}`">{{ cartProduct.title }}</router-link>
             </h2>
-            <p>{{ toCurrency(cartProduct.cost) }}</p>
+            <p>{{ toCurrency(cartProduct.cost) }}xxx</p>xxx
             <div class="card-actions">
                 <div class="btn-group">
                     <button class="btn btn-primary" @click="cartStore.remove(cartProduct.id)">-</button>

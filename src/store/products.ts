@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-const fakeStoreUrl = 'https://fakestoreapi.com';
+import fakeStoreUrl from '../data/books.json';
 
 export interface Product {
   id: number;
@@ -38,8 +38,8 @@ export const useProductStore = defineStore({
     async fetchAll() {
       if (this.loaded) return;
 
-      const res = await fetch(`${fakeStoreUrl}/products`);
-      const data: Product[] = await res.json();
+      const res = fakeStoreUrl //await fetch(`${fakeStoreUrl}`);
+      const data: Product[] =  fakeStoreUrl// await res.json();
       this.ids = data.map((product) => {
         this.items[product.id] = product;
         return product.id;
